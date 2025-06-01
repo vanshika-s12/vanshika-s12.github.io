@@ -14,7 +14,7 @@ layout: default
     color: #fff;
     overflow: hidden;
   }
-
+  /* --- Enhanced Animated White Glow Overlay --- */
   .glow-overlay {
     pointer-events: none;
     position: fixed;
@@ -223,6 +223,7 @@ layout: default
     overflow-y: auto;
   }
 
+  /* Projects: invisible vertical scrollbar */
   .projects-box {
     width: 100%;
     max-width: 900px;
@@ -238,8 +239,8 @@ layout: default
     max-height: 400px;
     overflow-y: auto;
     overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
   }
   .projects-box::-webkit-scrollbar {
     width: 0px;
@@ -320,6 +321,7 @@ layout: default
     flex: 1 1 auto;
   }
 
+  /* SCROLLABLE ABOUT DETAIL BOX */
   .about-detail-container {
     margin: 38px auto 0 auto;
     background: rgba(255,255,255,0.62);
@@ -380,6 +382,7 @@ layout: default
   }
 </style>
 
+<!-- Enhanced Animated Glow Overlay -->
 <div class="glow-overlay">
   <div class="glow-light"></div>
   <div class="glow-light2"></div>
@@ -417,7 +420,9 @@ layout: default
     <div id="home">
       <div class="home-vertical-stack">
         <div class="intro-text" id="intro-text">
-          Hi! I'm Vanshika, a driven student passionate about science, AI, and research. I recently completed high school and have engaged in global issue workshops at The Indian Vidyarthi, focusing on urban water management, sustainability, and innovative business strategies. My journey includes authoring a research paper on Quantum Temporal Lattice Theory (QTL) in IJSAT, developing practical ML and automation tools, and consistently winning accolades in science exhibitions and hackathons. I thrive on creative problem-solving, research writing, and building solutions that blend technology with real-world impact.
+          Hi! I'm Vanshika, a driven student passionate about science, AI, and research. 
+          I recently completed high school and have engaged in global issue workshops at The Indian Vidyarthi, focusing on urban water management, sustainability, and innovative business strategies. My journey includes authoring a research paper on Quantum Temporal Lattice Theory (QTL) in IJSAT, developing practical ML and automation tools, and consistently winning accolades in science exhibitions and hackathons. 
+          I thrive on creative problem-solving, research writing, and building solutions that blend technology with real-world impact.
         </div>
         <h1 class="updates-heading">Updates</h1>
         <div class="updates-scrollbox">
@@ -433,7 +438,7 @@ layout: default
         </div>
       </div>
     </div>
-    <!-- PROJECTS -->
+    <!-- PROJECTS (INVISIBLE SCROLLBAR) -->
     <div id="projects" style="display: none;">
       <div class="projects-box">
         <div class="projects-header-row">
