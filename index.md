@@ -51,7 +51,8 @@ layout: default
   }
 
   .navbar {
-    width: 100%;
+    width: calc(100% - 290px); /* Adjust so it's centered with main content */
+    margin-left: 290px;
     padding: 15px 30px;
     background-color: #1a1a1a;
     display: flex;
@@ -61,6 +62,7 @@ layout: default
     position: fixed;
     top: 0;
     z-index: 101;
+    box-sizing: border-box;
   }
   .navbar a {
     color: #2d2d2d;
@@ -357,28 +359,6 @@ layout: default
     border: 1px solid #e2e2e2;
     line-height: 1.7;
     width: 100%;
-  }
-  .projects-box {
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto 0 auto;
-    background-color: rgba(0, 0, 0, 0.87);
-    border-radius: 15px;
-    padding: 28px 26px 24px 26px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: 360px;
-    max-height: 400px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .projects-box::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
   }
 </style>
 
