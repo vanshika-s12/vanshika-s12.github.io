@@ -30,10 +30,11 @@
 
         /* Style the GIF */
         img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures GIF covers the entire area */
-            opacity: 0.5; /* Translucency when visible */
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover; /* Ensures GIF covers the entire viewport */
+            display: block; /* Removes any default inline spacing */
+            opacity: 0.3; /* More transparent for subtle visibility */
         }
 
         /* Class to show the GIF */
@@ -58,6 +59,11 @@
             font-size: 18px;
             text-align: center;
             padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2;
         }
     </style>
 </head>
