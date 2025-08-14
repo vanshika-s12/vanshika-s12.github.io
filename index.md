@@ -16,6 +16,40 @@
             font-family: Arial, sans-serif;
         }
 
+        /* Navbar styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 3;
+            padding: 10px 0;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 20px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #ddd;
+        }
+
         /* Container for the video */
         .video-container {
             position: fixed;
@@ -23,7 +57,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: 1; /* Video stays above content */
+            z-index: 1; /* Video stays above content, below navbar */
             opacity: 0; /* Initially hidden */
             transition: opacity 1s ease-in-out; /* Smooth fade effect */
         }
@@ -47,6 +81,7 @@
             position: relative;
             z-index: 0; /* Content stays below the video */
             padding: 20px;
+            margin-top: 60px; /* Offset for navbar */
             color: #fff; /* White text for contrast */
             text-align: center;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
@@ -60,15 +95,23 @@
             text-align: center;
             padding: 20px;
             position: fixed;
-            top: 0;
+            top: 60px; /* Below navbar */
             left: 0;
             width: 100%;
             z-index: 2;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for visibility */
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
         }
     </style>
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+        </ul>
+    </nav>
+
     <!-- Video container -->
     <div class="video-container" id="videoContainer">
         <video id="introVideo" autoplay muted loop>
