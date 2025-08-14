@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full-Screen Translucent GIF with Background</title>
+    <title>Full-Screen Translucent Video with Background</title>
     <style>
         body {
             margin: 0;
@@ -16,43 +16,43 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Container for the GIF */
-        .gif-container {
+        /* Container for the video */
+        .video-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: 1; /* GIF stays above content */
+            z-index: 1; /* Video stays above content */
             opacity: 0; /* Initially hidden */
             transition: opacity 1s ease-in-out; /* Smooth fade effect */
         }
 
-        /* Style the GIF */
-        img {
+        /* Style the video */
+        video {
             width: 100vw;
             height: 100vh;
-            object-fit: cover; /* Ensures GIF covers the entire viewport */
-            display: block; /* Removes any default inline spacing */
-            opacity: 0.3; /* More transparent for subtle visibility */
+            object-fit: cover; /* Ensures video covers the entire viewport */
+            display: block; /* Removes default spacing */
+            opacity: 0.3; /* Subtle transparency */
         }
 
-        /* Class to show the GIF */
-        .gif-container.visible {
+        /* Class to show the video */
+        .video-container.visible {
             opacity: 1;
         }
 
-        /* Content behind the GIF */
+        /* Content behind the video */
         .content {
             position: relative;
-            z-index: 0; /* Content stays below the GIF */
+            z-index: 0; /* Content stays below the video */
             padding: 20px;
             color: #fff; /* White text for contrast */
             text-align: center;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
         }
 
-        /* Fallback message if GIF fails to load */
+        /* Fallback message if video fails to load */
         .fallback {
             display: none;
             color: red;
@@ -64,50 +64,60 @@
             left: 0;
             width: 100%;
             z-index: 2;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for visibility */
         }
     </style>
 </head>
 <body>
-    <!-- GIF container -->
-    <div class="gif-container" id="gifContainer">
-        <img src="assets/intro.gif" alt="Intro GIF" id="introGif">
+    <!-- Video container -->
+    <div class="video-container" id="videoContainer">
+        <video id="introVideo" autoplay muted loop>
+            <source src="assets/intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
 
     <!-- Fallback message -->
     <div class="fallback" id="fallbackMessage">
-        Failed to load GIF. Please check the file path: assets/intro.gif
+        Failed to load video. Please check the file path: assets/intro.mp4
     </div>
 
-    <!-- Sample content behind the GIF -->
+    <!-- Sample content behind the video -->
     <div class="content">
         <h1>Welcome to My Page</h1>
-        <p>This is some content behind the translucent GIF that appears and vanishes.</p>
+        <p>This is some content behind the translucent video that appears and vanishes.</p>
     </div>
 
     <script>
-        // JavaScript to toggle GIF visibility
-        const gifContainer = document.getElementById('gifContainer');
-        const introGif = document.getElementById('introGif');
+        // JavaScript to toggle video visibility
+        const videoContainer = document.getElementById('videoContainer');
+        const introVideo = document.getElementById('introVideo');
         const fallbackMessage = document.getElementById('fallbackMessage');
 
-        // Check if GIF loads successfully
-        introGif.onerror = () => {
-            fallbackMessage.style.display = 'block'; // Show fallback if GIF fails
+        // Log file paths for debugging
+        console.log('Video path:', introVideo.src);
+        console.log('Background path:', getComputedStyle(document.body).backgroundImage);
+
+        // Check if video loads successfully
+        introVideo.onerror = () => {
+            console.error('Error: Video failed to load at assets/intro.mp4');
+            fallbackMessage.style.display = 'block'; // Show fallback if video fails
         };
 
-        introGif.onload = () => {
-            fallbackMessage.style.display = 'none'; // Hide fallback if GIF loads
+        introVideo.onloadeddata = () => {
+            console.log('Video loaded successfully');
+            fallbackMessage.style.display = 'none'; // Hide fallback if video loads
         };
 
-        function toggleGif() {
-            gifContainer.classList.toggle('visible');
+        function toggleVideo() {
+            videoContainer.classList.toggle('visible');
         }
 
-        // Show GIF for 5 seconds, hide for 5 seconds, repeat
-        setInterval(toggleGif, 5000);
+        // Show video for 5 seconds, hide for 5 seconds, repeat
+        setInterval(toggleVideo, 5000);
 
-        // Start with the GIF visible
-        toggleGif();
+        // Start with the video visible
+        toggleVideo();
     </script>
 </body>
 </html>
